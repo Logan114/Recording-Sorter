@@ -5,7 +5,7 @@ from datetime import date, datetime
 x = datetime.now()
 year = str(x.year)
 month = x.strftime("%Y_""%b") #month with name
-month1 = str(x.month) #current month
+month1 = str(x.month) #current month with number
 if month1 > str(9):
     current = year+"-"+str(month1)
 else:
@@ -24,13 +24,13 @@ automatic = input ("\n \n Should i go semi-automatic? Y/N ")
 
 if automatic in ['Y',"y","i","I","yes"]:
     outputfile = input("\n \n what should the output file be named? ")
-    lrz = str(("ffmpeg -i ~/TV-tapes/"+ files + " -c:v libx265 " + month+ "/" +outputfile + ".mkv && beep -f 600"))
+    lrz = str(("ffmpeg -i ./"+ files + " -c:v libx265 " + month+ "/" +outputfile + ".mkv && beep -f 600"))
     
 else:
     files = "~/TV-tapes/" + input("\n \n Which file should i compress? ") + "* "
     os.system('ls '+ files)
     outputfile = files
-    lrz = str(("ffmpeg -i ~/TV-tapes/" + files +  " -c:v libx265 " + month+ "/" +outputfile + ".mkv && beep -f 600"))
+    lrz = str(("ffmpeg -i ./" + files +  " -c:v libx265 " + month+ "/" +outputfile + ".mkv && beep -f 600"))
  
 
 
