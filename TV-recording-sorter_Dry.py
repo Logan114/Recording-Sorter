@@ -10,7 +10,7 @@ if month1 > str(9):
     current = year+"-"+str(month1)
 else:
     current = year+"-0"+str(month1) # current year and month
-files =  current +"-*"
+files =  current +"*"
 def delete_source():
     confirmation = input("should i delete the source file? Y/N ")
     if confirmation in ['y', 'y', "i", "I", "yes"]:
@@ -24,16 +24,16 @@ automatic = input ("\n \n Should i go semi-automatic? Y/N ")
 
 if automatic in ['Y',"y","i","I","yes"]:
     outputfile = input("\n \n what should the output file be named? ")
-    lrz = str(("ffmpeg -i ~/TV-tapes/"+ files + " -c:v libx265 " + month+ "/" +outputfile + ".mkv && beep -f 600"))
+    lrz = str(("ffmpeg -i "+ current  +"* " "-c:v libx265 " + month+ "/" +outputfile + ".mkv && beep -f 600"))
     
 else:
     files = "~/TV-tapes/" + input("\n \n Which file should i compress? ") + "* "
     os.system('ls '+ files)
     outputfile = input("\n \n what should the output file be named? ")
-    lrz = str(("ffmpeg -i ~/TV-tapes/" + files +  " -c:v libx265 " + month+ "/" +outputfile + ".mkv && beep -f 600"))
+    lrz = str(("ffmpeg -i " + files +  "-c:v libx265 " + month+ "/" +outputfile + ".mkv && beep -f 600"))
  
 
-
-print (lrz)
-os.system(lrz)
-delete_source()
+print (current)
+#print (lrz)
+#os.system(lrz)
+#delete_source()
