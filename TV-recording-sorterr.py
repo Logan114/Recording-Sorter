@@ -29,7 +29,7 @@ if automatic in ['Y',"y","i","I","yes"]:
 else:
     files = "~/TV-tapes/" + input("\n \n Which file should i compress? ") + "* "
     os.system('ls '+ files)
-    outputfile = input("\n \n what should the output file be named? ")
+    outputfile = files
     lrz = str(("ffmpeg -i ~/TV-tapes/" + files +  " -c:v libx265 " + month+ "/" +outputfile + ".mkv && beep -f 600"))
  
 
